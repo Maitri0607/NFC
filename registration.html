@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="main.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        clifford: '#da373d',
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <!-- bi bi cdn -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+
+    <style>
+        body {
+            /* background: url(./body/bg.jpg) no-repeat; */
+            background-size: cover;
+            /* height: 100vh; */
+            /* display: flex; */
+            /* align-items: center; */
+            /* justify-content: center; */
+            /* text-align: center; */
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            /* color: white; */
+            cursor: pointer;
+        }
+
+        .cursor {
+            position: fixed;
+            width: 50px;
+            height: 50px;
+            border: 1px solid #c6c6c6;
+            border-radius: 50%;
+            left: 0;
+            top: 0;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            transition: .2s;
+        }
+
+        .cursor2 {
+            position: fixed;
+            width: 8px;
+            height: 8px;
+            background-color: #c6c6c6;
+            border-radius: 50%;
+            left: 0;
+            top: 0;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+
+        }
+    </style>
+</head>
+
+<body class="">
+    <div
+        class="bg-gradient-to-r from-fuchsia-800 via-fuchsia-400 to-fuchsia-200 items-center justify-center h-full w-full object-cover">
+
+        <!-- source:https://codepen.io/owaiswiz/pen/jOPvEPB -->
+        <div class=" min-h-screen text-gray-900 flex justify-center">
+            <div
+                class="max-w-screen-xl m-0 sm:m-10 bg-gray-300 bg-opacity-50 shadow sm:rounded-lg flex justify-center flex-1 ">
+                <div class="lg:w-1/2 xl:w-5/12 p-6 sm:p-12">
+
+                    <div class="mt-10 flex flex-col items-center">
+                        <h1 class="text-2xl xl:text-3xl font-extrabold">
+                            Registration
+                        </h1>
+                        <div class="w-full flex-1 mt-8">
+                            <div class="mx-auto max-w-xs">
+                                <form onsubmit="validation()">
+
+                                    <div class="form-outline relative">
+                                        <input
+                                            class="w-full px-8 py-4 text-center hover:shadow-xl rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
+                                            type="name" placeholder="Full Name" id="name" required="required" />
+
+                                        <i class="bi bi-person-circle absolute top-4 right-4"></i>
+                                    </div>
+                                    <div class="form-outline relative">
+                                        <input
+                                            class="w-full px-8 py-4 text-center hover:shadow-xl rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-5"
+                                            type="mobile" placeholder="Phone Number" id="number" />
+                                        <i class="bi bi-phone-fill absolute top-9 right-4"></i>
+                                    </div>
+                                    <div class="form-outline relative">
+                                        <input
+                                            class="w-full px-8 py-4 text-center hover:shadow-xl rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-5"
+                                            type="email" placeholder="E-mail" id="email" />
+                                        <i class="bi bi-envelope-at absolute top-9 right-4"></i>
+                                    </div>
+                                    <div class="form-outline relative">
+                                        <input
+                                            class="w-full px-8 py-4 text-center hover:shadow-xl rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-5"
+                                            type="address" placeholder="Address" id="address" />
+                                        <i class="bi bi-geo-alt absolute top-9 right-4"></i>
+                                    </div>
+
+                                    <div class="form-outline relative">
+                                        <input
+                                            class="w-full px-8 py-4 text-center hover:shadow-xl rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-5"
+                                            type="bio" placeholder="Bio" id="bio" />
+                                        <i class="bi bi-file-earmark-person-fill absolute top-9 right-4"></i>
+                                    </div>
+
+
+                                    <div>
+                                        <input type="file" id="fileInput" class="hidden" required="required">
+                                        <label for="fileInput"
+                                            class="mt-5 cursor-pointer hover:shadow-xl tracking-wide font-semibold bg-gray-100 text-gray-500 w-full py-4 rounded-lg transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none text-sm">
+                                            Upload Cover Photo
+                                        </label>
+
+                                    </div>
+                                    <div></div>
+                                    <input type="file" id="fileInput" class="hidden">
+                                    <label for="fileInput"
+                                        class="mt-5 cursor-pointer hover:shadow-xl tracking-wide font-semibold bg-gray-100 text-gray-500 w-full py-4 rounded-lg transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none text-sm">
+                                        Upload Profile Photo
+                                    </label>
+
+                                    <div class="form-outline relative">
+                                        <input
+                                            class="w-full px-8 py-4 text-center hover:shadow-xl rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-5"
+                                            type="password" placeholder="Password" id="password" />
+                                        <i class="fa fa-fw fa-eye absolute top-9 right-4"></i>
+                                    </div>
+                                    <div class="form-outline relative">
+                                        <input
+                                            class="w-full px-8 py-4 text-center hover:shadow-xl rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-5"
+                                            type="password" placeholder="Confirm Password" id="cpassword" />
+                                        <i class="fa fa-fw fa-eye absolute top-9 right-4"></i>
+                                    </div>
+
+                                    <button
+                                        class="mt-5 tracking-wide font-semibold bg-pink-500 text-gray-100 w-full py-4 rounded-lg hover:bg-pink-600  ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none"
+                                        onclick="goToIndex()">
+
+                                        <span class="ml-3">
+                                            Register
+                                        </span>
+                                    </button>
+
+                                </form>
+
+                                <p class="mt-6 text-xs text-gray-600 text-center">
+                                    I agree to abide by NFC's
+                                    <a href="#" class="border-b border-gray-500 border-dotted">
+                                        Terms of Service
+                                    </a>
+                                    and its
+                                    <a href="#" class="border-b border-gray-500 border-dotted">
+                                        Privacy Policy
+                                    </a>
+                                </p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class=" flex-1 bg-opacity-50 text-center hidden lg:flex">
+                    <div class="m-12 xl:m-16 w-full bg-contain bg-center bg-no-repeat border "
+                        style="background-image: url('body/nfc/reg.png');">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="cursor"></div>
+    <div class="cursor2"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.0/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r129/three.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
